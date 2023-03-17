@@ -13,6 +13,9 @@ function playRound(playerSelection, computerSelection) {
         outcomeMessage = "It'a tie!"
         console.log(outcomeMessage);
         document.getElementById("outcome").innerHTML = outcomeMessage;
+        document.getElementById("player-selection").innerHTML = playerSelection;
+        document.getElementById("computer-selection").innerHTML = computerSelection;
+
         return outcomeMessage;
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -22,11 +25,15 @@ function playRound(playerSelection, computerSelection) {
         outcomeMessage = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
         console.log(outcomeMessage);
         document.getElementById("outcome").innerHTML = outcomeMessage;
+        document.getElementById("player-selection").innerHTML = playerSelection;
+        document.getElementById("computer-selection").innerHTML = computerSelection;
         return outcomeMessage;
     } else {
         outcomeMessage = `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
         console.log(outcomeMessage);
         document.getElementById("outcome").innerHTML = outcomeMessage;
+        document.getElementById("player-selection").innerHTML = playerSelection;
+        document.getElementById("computer-selection").innerHTML = computerSelection;
         return outcomeMessage;
     }
 
@@ -44,7 +51,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt("Choose Rock, Paper, or Scissors");
-        
+
 
         if (!isValidSelection(playerSelection.toLowerCase())) {
             return "Invalid selection. Please choose Rock, Paper, or Scissors.";
