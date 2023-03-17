@@ -12,6 +12,7 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         outcomeMessage = "It'a tie!"
         console.log(outcomeMessage);
+        document.getElementById("outcome").innerHTML = outcomeMessage;
         return outcomeMessage;
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
@@ -20,10 +21,12 @@ function playRound(playerSelection, computerSelection) {
     ) {
         outcomeMessage = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
         console.log(outcomeMessage);
+        document.getElementById("outcome").innerHTML = outcomeMessage;
         return outcomeMessage;
     } else {
         outcomeMessage = `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
         console.log(outcomeMessage);
+        document.getElementById("outcome").innerHTML = outcomeMessage;
         return outcomeMessage;
     }
 
