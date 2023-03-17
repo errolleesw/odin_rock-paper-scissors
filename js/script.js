@@ -10,21 +10,28 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection) {
-        return "It's a tie!";
+        outcomeMessage = "It'a tie!"
+        console.log(outcomeMessage);
+        return outcomeMessage;
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
         (playerSelection === "paper" && computerSelection === "rock") ||
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-        return `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
+        outcomeMessage = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
+        console.log(outcomeMessage);
+        return outcomeMessage;
     } else {
-        return `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+        outcomeMessage = `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+        console.log(outcomeMessage);
+        return outcomeMessage;
     }
+
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+// const playerSelection = "rock";
+// const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
 
 
 
