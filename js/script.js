@@ -15,7 +15,6 @@ function playRound(playerSelection, computerSelection) {
         document.getElementById("outcome").innerHTML = outcomeMessage;
         document.getElementById("player-selection").innerHTML = playerSelection;
         document.getElementById("computer-selection").innerHTML = computerSelection;
-
         return outcomeMessage;
     } else if (
         (playerSelection === "rock" && computerSelection === "scissors") ||
