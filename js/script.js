@@ -22,17 +22,23 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "scissors" && computerSelection === "paper")
     ) {
         outcomeMessage = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection}`;
+        score ('player');
         console.log(outcomeMessage);
         document.getElementById("outcome").innerHTML = outcomeMessage;
         document.getElementById("player-selection").innerHTML = playerSelection;
         document.getElementById("computer-selection").innerHTML = computerSelection;
+        document.getElementById("player-score").innerHTML = playerScore;
+        document.getElementById("computer-score").innerHTML = computerScore;
         return outcomeMessage;
     } else {
         outcomeMessage = `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+        score ('computer');
         console.log(outcomeMessage);
         document.getElementById("outcome").innerHTML = outcomeMessage;
         document.getElementById("player-selection").innerHTML = playerSelection;
         document.getElementById("computer-selection").innerHTML = computerSelection;
+        document.getElementById("player-score").innerHTML = playerScore;
+        document.getElementById("computer-score").innerHTML = computerScore;
         return outcomeMessage;
     }
 
@@ -42,6 +48,26 @@ function playRound(playerSelection, computerSelection) {
 // const computerSelection = getComputerChoice();
 // console.log(playRound(playerSelection, computerSelection));
 
+
+let playerScore = 0;
+let computerScore = 0;
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+    console.log(playerScore, computerScore);
+    document.getElementById("player-score").innerHTML = playerScore;
+    document.getElementById("computer-score").innerHTML = computerScore;
+}
+
+function score(winner) {
+    if (winner === 'player') {
+        playerScore++;
+    } else if (winner === 'computer') {
+        computerScore++;
+    }
+
+    console.log(playerScore, computerScore);
+}
 
 
 function game() {

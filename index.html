@@ -15,7 +15,7 @@
 
     <div class="game">
         <div class="player">
-            <h2>Player</h2>
+            <h2>Your choice</h2>
             <button class="rock" onclick="playRound('Rock',getComputerChoice())">Rock</button>
             <button class="paper" onclick="playRound('Paper',getComputerChoice())">Paper</button>
             <button class="scissors" onclick="playRound('Scissors',getComputerChoice())">Scissors</button>
@@ -33,6 +33,18 @@
                 <h2>Computer's Selection</h2>
                 <p id="computer-selection"></p>
             </div>
+        </div>
+
+        <div class="score">
+            <div class="player-score">
+                <h2>Player</h2>
+                <p id="player-score"></p>
+            </div>
+            <div class="player-score">
+                <h2>Computer</h2>
+                <p id="computer-score"></p>
+            </div>
+            <button class="reset" onclick="resetScore()">Start Again</button>
         </div>
         <!-- <div class="computer">
           <h2>Computer</h2>
