@@ -29,6 +29,18 @@ function playRound(playerSelection, computerSelection) {
         document.getElementById("computer-selection").innerHTML = computerSelection;
         document.getElementById("player-score").innerHTML = playerScore;
         document.getElementById("computer-score").innerHTML = computerScore;
+        // setTimeout(checkScore(),3000);
+        if (playerScore === 5) {
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            setTimeout(function() { alert ('Congratulations. You win!'); }, 200); //ensures the code inside the funciton will be executed asynchronously after the current function call.
+            // resetScore();
+        } else if (computerScore === 5) {
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            setTimeout(function() { alert ('Game Over. You Lose.'); }, 200);
+            // resetScore();
+        }
         return outcomeMessage;
     } else {
         outcomeMessage = `You Lose! ${computerSelection} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
@@ -39,6 +51,18 @@ function playRound(playerSelection, computerSelection) {
         document.getElementById("computer-selection").innerHTML = computerSelection;
         document.getElementById("player-score").innerHTML = playerScore;
         document.getElementById("computer-score").innerHTML = computerScore;
+        // setTimeout(checkScore(),3000);
+        if (playerScore === 5) {
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            setTimeout(function() { alert ('Congratulations. You win!'); }, 20); //ensures the code inside the funciton will be executed asynchronously after the current function call.
+            // resetScore();
+        } else if (computerScore === 5) {
+            document.getElementById("player-score").innerHTML = playerScore;
+            document.getElementById("computer-score").innerHTML = computerScore;
+            setTimeout(function() { alert ('Game Over. You Lose.'); }, 20);
+            // resetScore();
+        }
         return outcomeMessage;
     }
 
@@ -65,42 +89,57 @@ function score(winner) {
     } else if (winner === 'computer') {
         computerScore++;
     }
-
     console.log(playerScore, computerScore);
 }
 
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Choose Rock, Paper, or Scissors");
-
-
-        if (!isValidSelection(playerSelection.toLowerCase())) {
-            return "Invalid selection. Please choose Rock, Paper, or Scissors.";
-        }
-        const computerSelection = getComputerChoice();
-        const result = playRound(playerSelection, computerSelection);
-
-        console.log(result);
-
-        if (result.startsWith("You Win!")) {
-            playerScore++;
-        } else if (result.startsWith("You Lose!")) {
-            computerScore++;
-        }
+function checkScore() {
+    if (playerScore === 5) {
+        document.getElementById("player-score").innerHTML = playerScore;
+        document.getElementById("computer-score").innerHTML = computerScore;
+        setTimeout(function() { alert ('Congratulations. You win!'); }, 20); //ensures the code inside the funciton will be executed asynchronously after the current function call.
+        resetScore();
+    } else if (computerScore === 5) {
+        document.getElementById("player-score").innerHTML = playerScore;
+        document.getElementById("computer-score").innerHTML = computerScore;
+        setTimeout(function() { alert ('Game Over. You Lose.'); }, 20);
+        resetScore();
     }
-
-    if (playerScore > computerScore) {
-        console.log(`Congratulations, you win the game! Final score: ${playerScore} - ${computerScore}`);
-    } else if (playerScore < computerScore) {
-        console.log(`Sorry, you lose the game. Final score: ${playerScore} - ${computerScore}`);
-    } else {
-        console.log(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
-    }
+    
 }
+
+
+
+// function game() {
+//     let playerScore = 0;
+//     let computerScore = 0;
+
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = prompt("Choose Rock, Paper, or Scissors");
+
+
+//         if (!isValidSelection(playerSelection.toLowerCase())) {
+//             return "Invalid selection. Please choose Rock, Paper, or Scissors.";
+//         }
+//         const computerSelection = getComputerChoice();
+//         const result = playRound(playerSelection, computerSelection);
+
+//         console.log(result);
+
+//         if (result.startsWith("You Win!")) {
+//             playerScore++;
+//         } else if (result.startsWith("You Lose!")) {
+//             computerScore++;
+//         }
+//     }
+
+//     if (playerScore > computerScore) {
+//         console.log(`Congratulations, you win the game! Final score: ${playerScore} - ${computerScore}`);
+//     } else if (playerScore < computerScore) {
+//         console.log(`Sorry, you lose the game. Final score: ${playerScore} - ${computerScore}`);
+//     } else {
+//         console.log(`It's a tie! Final score: ${playerScore} - ${computerScore}`);
+//     }
+// }
 
 function isValidSelection(selection) {
     const validChoices = ["rock", "paper", "scissors"];
